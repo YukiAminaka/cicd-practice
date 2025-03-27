@@ -1,0 +1,12 @@
+name: Environment variables
+on: push
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    env:
+      BRANCH: main # BRANCHという名前の環境変数へ、mainという値をセット
+    steps:
+      - run: echo "${BRANCH}"
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ env.BRANCH}}
